@@ -12,6 +12,8 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script type="text/javascript">
         let type = "";
+        let success = "<span class='success'>정답</span>";
+        let fail = "<span class='fail'>오답 : ${answer}</span>";
         $(document).ready(function(){
             $("#create").on("click", function (){
                 type = 1;
@@ -80,33 +82,33 @@
                 $(".answer").each(function (index, item){
                     if(type == 1 ) {
                         if (Number($(this).val()) == Number($(this).data("first")) + Number($(this).data("second"))) {
-                            $(this).next().html("정답");
+                            $(this).next().html(success);
                         } else {
-                            $(this).next().html("오답 :" + (Number($(this).data("first")) + Number($(this).data("second"))));
+                            $(this).next().html(fail.split("${fail}").join( (Number($(this).data("first")) + Number($(this).data("second"))));
                         }
                     } else if(type == 2) {
                         if (Number($(this).val()) == Number($(this).data("first")) + Number($(this).data("second")) - Number($(this).data("third"))) {
-                            $(this).next().html("정답");
+                            $(this).next().html(success);
                         } else {
-                            $(this).next().html("오답" + " : "+ ( Number($(this).data("first")) + Number($(this).data("second")) - Number($(this).data("third"))) );
+                            $(this).next().html(fail.split("${fail}").join (( Number($(this).data("first")) + Number($(this).data("second")) - Number($(this).data("third")))) );
                         }
                     } else if(type == 3 ) {
                         if (Number($(this).val()) == Number($(this).data("first")) * Number($(this).data("second")) ) {
-                            $(this).next().html("정답");
+                            $(this).next().html(success);
                         } else {
-                            $(this).next().html("오답" + " : "+ ( Number($(this).data("first")) * Number($(this).data("second"))) );
+                            $(this).next().html(fail.split("${fail}").join( Number($(this).data("first")) * Number($(this).data("second"))) );
                         }
                     } else if(type == 4 ) {
                         if (Number($(this).val()) == Number($(this).data("first")) * Number($(this).data("second"))) {
-                            $(this).next().html("정답");
+                            $(this).next().html(success);
                         } else {
-                            $(this).next().html("오답" + " : "+ ( Number($(this).data("first")) * Number($(this).data("second"))) );
+                            $(this).next().html(fail.split("${fail}").join( Number($(this).data("first")) * Number($(this).data("second"))) );
                         }
                     } else if(type == 5 ) {
                         if (Number($(this).val()) == Number($(this).data("first")) - Number($(this).data("second"))) {
-                            $(this).next().html("정답");
+                            $(this).next().html(success);
                         } else {
-                            $(this).next().html("오답" + " : "+ ( Number($(this).data("first")) - Number($(this).data("second"))) );
+                            $(this).next().html(fail.split("${fail}").join( Number($(this).data("first")) - Number($(this).data("second"))) );
                         }
                     }
                     console.log(Number($(this).data("first")) +Number($(this).data("second")));
