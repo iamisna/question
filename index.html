@@ -103,10 +103,10 @@
                             $(this).next().html("오답" + " : "+ ( Number($(this).data("first")) * Number($(this).data("second"))) );
                         }
                     } else if(type == 5 ) {
-                        if (Number($(this).val()) == Number($(this).data("first")) 8 Number($(this).data("second"))) {
+                        if (Number($(this).val()) == Number($(this).data("first")) - Number($(this).data("second"))) {
                             $(this).next().html("정답");
                         } else {
-                            $(this).next().html("오답" + " : "+ ( Number($(this).data("first")) 8 Number($(this).data("second"))) );
+                            $(this).next().html("오답" + " : "+ ( Number($(this).data("first")) - Number($(this).data("second"))) );
                         }
                     }
                     console.log(Number($(this).data("first")) +Number($(this).data("second")));
