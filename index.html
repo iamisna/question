@@ -8,6 +8,9 @@
             font-size: 40px;
             margin: 3px;
         }
+        .fail {
+            color: red;
+        }
     </style>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script type="text/javascript">
@@ -84,31 +87,31 @@
                         if (Number($(this).val()) == Number($(this).data("first")) + Number($(this).data("second"))) {
                             $(this).next().html(success);
                         } else {
-                            $(this).next().html(fail.split("${fail}").join( (Number($(this).data("first")) + Number($(this).data("second")))) );
+                            $(this).next().html(fail.split("${answer}").join( (Number($(this).data("first")) + Number($(this).data("second")))) );
                         }
                     } else if(type == 2) {
                         if (Number($(this).val()) == Number($(this).data("first")) + Number($(this).data("second")) - Number($(this).data("third"))) {
                             $(this).next().html(success);
                         } else {
-                            $(this).next().html(fail.split("${fail}").join (( Number($(this).data("first")) + Number($(this).data("second")) - Number($(this).data("third")))) );
+                            $(this).next().html(fail.split("${answer}").join (( Number($(this).data("first")) + Number($(this).data("second")) - Number($(this).data("third")))) );
                         }
                     } else if(type == 3 ) {
                         if (Number($(this).val()) == Number($(this).data("first")) * Number($(this).data("second")) ) {
                             $(this).next().html(success);
                         } else {
-                            $(this).next().html(fail.split("${fail}").join( Number($(this).data("first")) * Number($(this).data("second"))) );
+                            $(this).next().html(fail.split("${answer}").join( Number($(this).data("first")) * Number($(this).data("second"))) );
                         }
                     } else if(type == 4 ) {
                         if (Number($(this).val()) == Number($(this).data("first")) * Number($(this).data("second"))) {
                             $(this).next().html(success);
                         } else {
-                            $(this).next().html(fail.split("${fail}").join( Number($(this).data("first")) * Number($(this).data("second"))) );
+                            $(this).next().html(fail.split("${answer}").join( Number($(this).data("first")) * Number($(this).data("second"))) );
                         }
                     } else if(type == 5 ) {
                         if (Number($(this).val()) == Number($(this).data("first")) - Number($(this).data("second"))) {
                             $(this).next().html(success);
                         } else {
-                            $(this).next().html(fail.split("${fail}").join( Number($(this).data("first")) - Number($(this).data("second"))) );
+                            $(this).next().html(fail.split("${answer}").join( Number($(this).data("first")) - Number($(this).data("second"))) );
                         }
                     }
                     console.log(Number($(this).data("first")) +Number($(this).data("second")));
