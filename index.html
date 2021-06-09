@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .question {
+            font-size: 40px;
+            margin: 3px;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        let type = "";
+        $(document).ready(function(){
+            $("#create").on("click", function (){
+                type = 1;
+                $("#questions").html("");
+                let count = $("#count").val();
+                for(let i=0;i<count;i++) {
+                    let first = rand(10,99);
+                    let second = rand(10,99);
+                    $("#questions").append("<div class='question'>"+ first+" + " + second + "= <input type='number' class='answer' style='width:100px; line-height: 40px; font-size: 40px;' data-first='"+first+"' data-second='"+second+"' /> <span></span></div>");
+                }
+            })
+            $("#create2").on("click", function (){
+                type = 2;
+                $("#questions").html("");
+                let count = $("#count").val();
+                for(let i=0;i<count;i++) {
+                    let first = rand(10,99);
+                    let second = rand(10,99);
+                    let third = rand(10,99);
+                    $("#questions").append("<div class='question'>"+ first+" + " + second + " - "+third + "= <input type='number' class='answer' style='width:100px; line-height: 40px; font-size: 40px;' data-first='"+first+"' data-second='"+second+"' data-third='"+third+"' /> <span></span></div>");
+                }
+            })
+            $("#create3").on("click", function (){
+                type = 3;
+                $("#questions").html("");
+                let count = $("#count").val();
+                for(let i=0;i<count;i++) {
+                    let first = rand(1,9);
+                    let second = rand(1,9);
+                    $("#questions").append("<div class='question'>"+ first+" X " + second + " = <input type='number' class='answer' style='width:100px; line-height: 40px; font-size: 40px;' data-first='"+first+"' data-second='"+second+"' /> <span></span></div>");
+                }
+            })
+
+            $("#create4").on("click", function (){
+                type = 4;
+                $("#questions").html("");
+                let count = $("#count").val();
+                for(let i=0;i<count;i++) {
+                    let first = rand(10,99);
+                    let second = rand(10,99);
+                    $("#questions").append("<div class='question'>"+ first+" X " + second + " = <input type='number' class='answer' style='width:100px; line-height: 40px; font-size: 40px;' data-first='"+first+"' data-second='"+second+"' /> <span></span></div>");
+                }
+            })
+
+
+            $("#final").on("click", function (){
+                $(".answer").each(function (index, item){
+                    if(type == 1 ) {
+                        if (Number($(this).val()) == Number($(this).data("first")) + Number($(this).data("second"))) {
+                            $(this).next().html("정답");
+                        } else {
+                            $(this).next().html("오답 :" + (Number($(this).data("first")) + Number($(this).data("second"))));
+                        }
+                    } else if(type == 2) {
+                        if (Number($(this).val()) == Number($(this).data("first")) + Number($(this).data("second")) - Number($(this).data("third"))) {
+                            $(this).next().html("정답");
+                        } else {
+                            $(this).next().html("오답" + " : "+ ( Number($(this).data("first")) + Number($(this).data("second")) - Number($(this).data("third"))) );
+                        }
+                    } else if(type == 3 ) {
+                        if (Number($(this).val()) == Number($(this).data("first")) * Number($(this).data("second")) ) {
+                            $(this).next().html("정답");
+                        } else {
+                            $(this).next().html("오답" + " : "+ ( Number($(this).data("first")) * Number($(this).data("second"))) );
+                        }
+                    } else if(type == 4 ) {
+                        if (Number($(this).val()) == Number($(this).data("first")) * Number($(this).data("second"))) {
+                            $(this).next().html("정답");
+                        } else {
+                            $(this).next().html("오답" + " : "+ ( Number($(this).data("first")) * Number($(this).data("second"))) );
+                        }
+                    }
+                    console.log(Number($(this).data("first")) +Number($(this).data("second")));
+                })
+            })
+
+
+
+        })
+        function rand(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+    </script>
+</head>
+<body>
+문제 개수 : <input type="number" id="count"> <br/>
+<button id="create">문제생성</button>
+<button id="create2">더어려운 덧셈</button>
+<button id="create3">곱셈</button>
+<button id="create4">더어려운 곱셈</button>
+<button id="final">채점</button>
+<div id="questions">
+
+</div>
+</body>
+</html>
