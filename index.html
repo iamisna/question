@@ -34,6 +34,25 @@
                     $("#questions").append("<div class='question'>"+ first+" + " + second + " - "+third + "= <input type='number' class='answer' style='width:100px; line-height: 40px; font-size: 40px;' data-first='"+first+"' data-second='"+second+"' data-third='"+third+"' /> <span></span></div>");
                 }
             })
+            $("#create5").on("click", function (){
+                type = 5;
+                $("#questions").html("");
+                let count = $("#count").val();
+                for(let i=0;i<count;i++) {
+                    let first = rand(10,99);
+                    let second = rand(10,99);
+                    while (true) {
+                        if(first>second) {
+                            break;
+                        } else {
+                            first = rand(10,99);
+                            second = rand(10,99);
+
+                        }
+                    }
+                    $("#questions").append("<div class='question'>"+ first+" - " + second + "= <input type='number' class='answer' style='width:100px; line-height: 40px; font-size: 40px;' data-first='"+first+"' data-second='"+second+"' /> <span></span></div>");
+                }
+            })
             $("#create3").on("click", function (){
                 type = 3;
                 $("#questions").html("");
@@ -83,6 +102,12 @@
                         } else {
                             $(this).next().html("오답" + " : "+ ( Number($(this).data("first")) * Number($(this).data("second"))) );
                         }
+                    } else if(type == 5 ) {
+                        if (Number($(this).val()) == Number($(this).data("first")) 8 Number($(this).data("second"))) {
+                            $(this).next().html("정답");
+                        } else {
+                            $(this).next().html("오답" + " : "+ ( Number($(this).data("first")) 8 Number($(this).data("second"))) );
+                        }
                     }
                     console.log(Number($(this).data("first")) +Number($(this).data("second")));
                 })
@@ -100,6 +125,7 @@
 문제 개수 : <input type="number" id="count"> <br/>
 <button id="create">문제생성</button>
 <button id="create2">더어려운 덧셈</button>
+<button id="create5">뺄셈</button>
 <button id="create3">곱셈</button>
 <button id="create4">더어려운 곱셈</button>
 <button id="final">채점</button>
