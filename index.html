@@ -84,7 +84,7 @@
                         if (Number($(this).val()) == Number($(this).data("first")) + Number($(this).data("second"))) {
                             $(this).next().html(success);
                         } else {
-                            $(this).next().html(fail.split("${fail}").join( (Number($(this).data("first")) + Number($(this).data("second"))));
+                            $(this).next().html(fail.split("${fail}").join( (Number($(this).data("first")) + Number($(this).data("second")))) );
                         }
                     } else if(type == 2) {
                         if (Number($(this).val()) == Number($(this).data("first")) + Number($(this).data("second")) - Number($(this).data("third"))) {
