@@ -141,6 +141,6 @@
     
     // $.selector container
     jQuery.fn.outer = function () {
-        return $($("<div></div>").html(this.clone())).html()
+        return $($("<div style='color:block;'></div>").html(this.clone())).html()
     }
 })(jQuery);
