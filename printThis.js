@@ -62,7 +62,8 @@
                 width: "0px",
                 height: "0px",
                 left: "-600px",
-                top: "-600px"
+                top: "-600px",
+                color:"black"
             });
             
             
@@ -141,6 +142,6 @@
     
     // $.selector container
     jQuery.fn.outer = function () {
-        return $($("<div style='color:block;'></div>").html(this.clone())).html()
+        return $($("<div style='color:black;'></div>").html(this.clone())).html()
     }
 })(jQuery);
