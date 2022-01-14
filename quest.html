@@ -27,242 +27,386 @@
             questJson = new Array();
             // body...
             let cnt = $.trim($("#cnt").val());
-            if (type == "create1"){
-            $("#questions").html("");
-            $("#questTitle").html("덧셈");
-            $("#questSecond").html("한자리덧셈");
-            for(let i=0;i<cnt;i++) {
-              let first = rand(1,9);
-              let second = rand(1,9);
-              $("#questions").append("<div class='question'><h3 style='display:inline;'>"+ first+" + " + second + "= </h3><input type='number' class='answer form-control me-sm-2' style='width:150px; line-height: 40px; font-size: 40px; display:inline;' data-first='"+first+"' data-second='"+second+"' /> <span></span></div>");
-              let quest = {
-                seq : i,
-                type: type,
-                first : first,
-                second : second
-              }
-              questJson.push(quest);
-            }
+            if (type == "create1") {
+                $("#questions").html("");
+                $("#questTitle").html("덧셈");
+                $("#questSecond").html("한자리덧셈");
+                for (let i = 0; i < cnt; i++) {
+                    let first = rand(1, 9);
+                    let second = rand(1, 9);
+                    $("#questions").append("<div class='question'><h3 style='display:inline;'>" + first + " + " + second + "= </h3><input type='number' class='answer form-control me-sm-2' style='width:150px; line-height: 40px; font-size: 40px; display:inline;' data-first='" + first + "' data-second='" + second + "' /> <span></span></div>");
+                    let quest = {
+                        seq: i,
+                        type: type,
+                        first: first,
+                        second: second
+                    }
+                    questJson.push(quest);
+                }
             } else if (type == "create2") {
-            $("#questions").html("");
-            $("#questTitle").html("덧셈");
-            $("#questSecond").html("두자리덧셈");
-            for(let i=0;i<cnt;i++) {
-              let first = rand(10,99);
-              let second = rand(10,99);
-              $("#questions").append("<div class='question'><h3 style='display:inline;'>"+ first+" + " + second + "= </h3><input type='number' class='answer form-control me-sm-2' style='width:150px; line-height: 40px; font-size: 40px; display:inline;' data-first='"+first+"' data-second='"+second+"' /> <span></span></div>");
-              let quest = {
-                seq : i,
-                type: type,
-                first : first,
-                second : second
-              }
-              questJson.push(quest);
-            }
+                $("#questions").html("");
+                $("#questTitle").html("덧셈");
+                $("#questSecond").html("두자리덧셈");
+                for (let i = 0; i < cnt; i++) {
+                    let first = rand(10, 99);
+                    let second = rand(10, 99);
+                    $("#questions").append("<div class='question'><h3 style='display:inline;'>" + first + " + " + second + "= </h3><input type='number' class='answer form-control me-sm-2' style='width:150px; line-height: 40px; font-size: 40px; display:inline;' data-first='" + first + "' data-second='" + second + "' /> <span></span></div>");
+                    let quest = {
+                        seq: i,
+                        type: type,
+                        first: first,
+                        second: second
+                    }
+                    questJson.push(quest);
+                }
             } else if (type == "create3") {
-            $("#questions").html("");
-            $("#questTitle").html("덧셈");
-            $("#questSecond").html("세자리덧셈");
-            for(let i=0;i<cnt;i++) {
-              let first = rand(100,999);
-              let second = rand(100,999);
-              $("#questions").append("<div class='question'><h3 style='display:inline;'>"+ first+" + " + second + "= </h3><input type='number' class='answer form-control me-sm-2' style='width:150px; line-height: 40px; font-size: 40px; display:inline;' data-first='"+first+"' data-second='"+second+"' /> <span></span></div>");
-              let quest = {
-                seq : i,
-                type: type,
-                first : first,
-                second : second
-              }
-              questJson.push(quest);
-            }
+                $("#questions").html("");
+                $("#questTitle").html("덧셈");
+                $("#questSecond").html("세자리덧셈");
+                for (let i = 0; i < cnt; i++) {
+                    let first = rand(100, 999);
+                    let second = rand(100, 999);
+                    $("#questions").append("<div class='question'><h3 style='display:inline;'>" + first + " + " + second + "= </h3><input type='number' class='answer form-control me-sm-2' style='width:150px; line-height: 40px; font-size: 40px; display:inline;' data-first='" + first + "' data-second='" + second + "' /> <span></span></div>");
+                    let quest = {
+                        seq: i,
+                        type: type,
+                        first: first,
+                        second: second
+                    }
+                    questJson.push(quest);
+                }
             } else if (type == "create4") {
-            $("#questions").html("");
-            $("#questTitle").html("뺄셈");
-            $("#questSecond").html("한자리뺄셈");
-            for(let i=0;i<cnt;i++) {
-              let first = rand(1,9);
-              let second = rand(1,9);
-              while (true) {
-                if(second <= first) {
-                  break;
-                } else {
-                  first = rand(1,9);
-                  second = rand(1,9);
+                $("#questions").html("");
+                $("#questTitle").html("뺄셈");
+                $("#questSecond").html("한자리뺄셈");
+                for (let i = 0; i < cnt; i++) {
+                    let first = rand(1, 9);
+                    let second = rand(1, 9);
+                    while (true) {
+                        if (second <= first) {
+                            break;
+                        } else {
+                            first = rand(1, 9);
+                            second = rand(1, 9);
+                        }
+                    }
+                    $("#questions").append("<div class='question'><h3 style='display:inline;'>" + first + " - " + second + "= </h3><input type='number' class='answer form-control me-sm-2' style='width:150px; line-height: 40px; font-size: 40px; display:inline;' data-first='" + first + "' data-second='" + second + "' /> <span></span></div>");
+                    let quest = {
+                        seq: i,
+                        type: type,
+                        first: first,
+                        second: second
+                    }
+                    questJson.push(quest);
                 }
-              }
-              $("#questions").append("<div class='question'><h3 style='display:inline;'>"+ first+" - " + second + "= </h3><input type='number' class='answer form-control me-sm-2' style='width:150px; line-height: 40px; font-size: 40px; display:inline;' data-first='"+first+"' data-second='"+second+"' /> <span></span></div>");
-              let quest = {
-                seq : i,
-                type: type,
-                first : first,
-                second : second
-              }
-              questJson.push(quest);
-            }
             } else if (type == "create5") {
-            $("#questions").html("");
-            $("#questTitle").html("뺄셈");
-            $("#questSecond").html("두자리뺄셈");
-            for(let i=0;i<cnt;i++) {
-              let first = rand(10,99);
-              let second = rand(10,99);
-              while (true) {
-                if(second <= first) {
-                  break;
-                } else {
-                  first = rand(10,99);
-                  second = rand(10,99);
+                $("#questions").html("");
+                $("#questTitle").html("뺄셈");
+                $("#questSecond").html("두자리뺄셈");
+                for (let i = 0; i < cnt; i++) {
+                    let first = rand(10, 99);
+                    let second = rand(10, 99);
+                    while (true) {
+                        if (second <= first) {
+                            break;
+                        } else {
+                            first = rand(10, 99);
+                            second = rand(10, 99);
+                        }
+                    }
+                    $("#questions").append("<div class='question'><h3 style='display:inline;'>" + first + " - " + second + "= </h3><input type='number' class='answer form-control me-sm-2' style='width:150px; line-height: 40px; font-size: 40px; display:inline;' data-first='" + first + "' data-second='" + second + "' /> <span></span></div>");
+                    let quest = {
+                        seq: i,
+                        type: type,
+                        first: first,
+                        second: second
+                    }
+                    questJson.push(quest);
                 }
-              }
-              $("#questions").append("<div class='question'><h3 style='display:inline;'>"+ first+" - " + second + "= </h3><input type='number' class='answer form-control me-sm-2' style='width:150px; line-height: 40px; font-size: 40px; display:inline;' data-first='"+first+"' data-second='"+second+"' /> <span></span></div>");
-              let quest = {
-                seq : i,
-                type: type,
-                first : first,
-                second : second
-              }
-              questJson.push(quest);
-            }
             } else if (type == "create6") {
-            $("#questions").html("");
-            $("#questTitle").html("뺄셈");
-            $("#questSecond").html("세자리뺄셈");
-            for(let i=0;i<cnt;i++) {
-              let first = rand(100,999);
-              let second = rand(100,999);
-              while (true) {
-                if(second <= first) {
-                  break;
-                } else {
-                  first = rand(100,999);
-                  second = rand(100,999);
+                $("#questions").html("");
+                $("#questTitle").html("뺄셈");
+                $("#questSecond").html("세자리뺄셈");
+                for (let i = 0; i < cnt; i++) {
+                    let first = rand(100, 999);
+                    let second = rand(100, 999);
+                    while (true) {
+                        if (second <= first) {
+                            break;
+                        } else {
+                            first = rand(100, 999);
+                            second = rand(100, 999);
+                        }
+                    }
+                    $("#questions").append("<div class='question'><h3 style='display:inline;'>" + first + " - " + second + "= </h3><input type='number' class='answer form-control me-sm-2' style='width:150px; line-height: 40px; font-size: 40px; display:inline;' data-first='" + first + "' data-second='" + second + "' /> <span></span></div>");
+                    let quest = {
+                        seq: i,
+                        type: type,
+                        first: first,
+                        second: second
+                    }
+                    questJson.push(quest);
                 }
-              }
-              $("#questions").append("<div class='question'><h3 style='display:inline;'>"+ first+" - " + second + "= </h3><input type='number' class='answer form-control me-sm-2' style='width:150px; line-height: 40px; font-size: 40px; display:inline;' data-first='"+first+"' data-second='"+second+"' /> <span></span></div>");
-              let quest = {
-                seq : i,
-                type: type,
-                first : first,
-                second : second
-              }
-              questJson.push(quest);
-            }
             } else if (type == "create7") {
-            $("#questions").html("");
-            $("#questTitle").html("덧셈+뺄셈");
-            $("#questSecond").html("두자리 덧셈 뺄셈");
-            for(let i=0;i<cnt;i++) {
-              let first = rand(10,99);
-              let second = rand(10,99);
-              let third = rand(10,99);
-              while (true) {
-                if(first+second >= third) {
-                  break;
-                } else {
-                  first = rand(10,99);
-                  second = rand(10,99);
+                $("#questions").html("");
+                $("#questTitle").html("덧셈+뺄셈");
+                $("#questSecond").html("두자리 덧셈 뺄셈");
+                for (let i = 0; i < cnt; i++) {
+                    let first = rand(10, 99);
+                    let second = rand(10, 99);
+                    let third = rand(10, 99);
+                    while (true) {
+                        if (first + second >= third) {
+                            break;
+                        } else {
+                            first = rand(10, 99);
+                            second = rand(10, 99);
+                        }
+                    }
+                    $("#questions").append("<div class='question'><h3 style='display:inline;'>" + first + " + " + second + " - " + third + "= </h3><input type='number' class='answer form-control me-sm-2' style='width:150px; line-height: 40px; font-size: 40px; display:inline;' data-first='" + first + "' data-second='" + second + "' data-third='" + third + "' /> <span></span></div>");
+                    let quest = {
+                        seq: i,
+                        type: type,
+                        first: first,
+                        second: second,
+                        third: third
+                    }
+                    questJson.push(quest);
                 }
-              }
-              $("#questions").append("<div class='question'><h3 style='display:inline;'>"+ first+" + " + second + " - "+third + "= </h3><input type='number' class='answer form-control me-sm-2' style='width:150px; line-height: 40px; font-size: 40px; display:inline;' data-first='"+first+"' data-second='"+second+"' data-third='"+third+"' /> <span></span></div>");
-              let quest = {
-                seq : i,
-                type: type,
-                first : first,
-                second : second,
-                third : third
-              }
-              questJson.push(quest);
-            }
             } else if (type == "create8") {
-            $("#questions").html("");
-            $("#questTitle").html("덧셈+뺄셈");
-            $("#questSecond").html("세자리 덧셈 뺄셈");
-            for(let i=0;i<cnt;i++) {
-              let first = rand(100,999);
-              let second = rand(100,999);
-              let third = rand(100,999);
-              while (true) {
-                if(first+second >= third) {
-                  break;
-                } else {
-                  first = rand(100,999);
-                  second = rand(100,999);
+                $("#questions").html("");
+                $("#questTitle").html("덧셈+뺄셈");
+                $("#questSecond").html("세자리 덧셈 뺄셈");
+                for (let i = 0; i < cnt; i++) {
+                    let first = rand(100, 999);
+                    let second = rand(100, 999);
+                    let third = rand(100, 999);
+                    while (true) {
+                        if (first + second >= third) {
+                            break;
+                        } else {
+                            first = rand(100, 999);
+                            second = rand(100, 999);
+                        }
+                    }
+                    $("#questions").append("<div class='question'><h3 style='display:inline;'>" + first + " + " + second + " - " + third + "= </h3><input type='number' class='answer form-control me-sm-2' style='width:150px; line-height: 40px; font-size: 40px; display:inline;' data-first='" + first + "' data-second='" + second + "' data-third='" + third + "' /> <span></span></div>");
+                    let quest = {
+                        seq: i,
+                        type: type,
+                        first: first,
+                        second: second,
+                        third: third
+                    }
+                    questJson.push(quest);
                 }
-              }
-              $("#questions").append("<div class='question'><h3 style='display:inline;'>"+ first+" + " + second + " - "+third + "= </h3><input type='number' class='answer form-control me-sm-2' style='width:150px; line-height: 40px; font-size: 40px; display:inline;' data-first='"+first+"' data-second='"+second+"' data-third='"+third+"' /> <span></span></div>");
-              let quest = {
-                seq : i,
-                type: type,
-                first : first,
-                second : second,
-                third : third
-              }
-              questJson.push(quest);
-            }
             } else if (type == "create9") {
-            $("#questions").html("");
-            $("#questTitle").html("곱셈");
-            $("#questSecond").html("구구단");
-            for(let i=0;i<9;i++) {
-              let first = cnt;
-              let second = (i+1);
-              $("#questions").append("<div class='question'><h3 style='display:inline;'>"+ first+" X " + second + " = </h3><input type='number' class='answer form-control me-sm-2' style='width:150px; line-height: 40px; font-size: 40px; display:inline;' data-first='"+first+"' data-second='"+second+"' /> <span></span></div>");
-              let quest = {
-                seq : i,
-                type: type,
-                first : first,
-                second : second
-              }
-              questJson.push(quest);
-            }
+                $("#questions").html("");
+                $("#questTitle").html("곱셈");
+                $("#questSecond").html("구구단");
+                for (let i = 0; i < 9; i++) {
+                    let first = cnt;
+                    let second = (i + 1);
+                    $("#questions").append("<div class='question'><h3 style='display:inline;'>" + first + " X " + second + " = </h3><input type='number' class='answer form-control me-sm-2' style='width:150px; line-height: 40px; font-size: 40px; display:inline;' data-first='" + first + "' data-second='" + second + "' /> <span></span></div>");
+                    let quest = {
+                        seq: i,
+                        type: type,
+                        first: first,
+                        second: second
+                    }
+                    questJson.push(quest);
+                }
             } else if (type == "create10") {
-            $("#questions").html("");
-             $("#questTitle").html("곱셈");
-            $("#questSecond").html("두자리곱셈");
-            for(let i=0;i<cnt;i++) {
-              let first = rand(10,99);
-              let second = rand(10,99);
-              $("#questions").append("<div class='question'><h3 style='display:inline;'>"+ first+" X " + second + " = </h3><input type='number' class='answer form-control me-sm-2' style='width:150px; line-height: 40px; font-size: 40px; display:inline;' data-first='"+first+"' data-second='"+second+"' /> <span></span></div>");
-              let quest = {
-                seq : i,
-                type: type,
-                first : first,
-                second : second
-              }
-              questJson.push(quest);
-            }
+                $("#questions").html("");
+                $("#questTitle").html("곱셈");
+                $("#questSecond").html("두자리곱셈");
+                for (let i = 0; i < cnt; i++) {
+                    let first = rand(10, 99);
+                    let second = rand(10, 99);
+                    $("#questions").append("<div class='question'><h3 style='display:inline;'>" + first + " X " + second + " = </h3><input type='number' class='answer form-control me-sm-2' style='width:150px; line-height: 40px; font-size: 40px; display:inline;' data-first='" + first + "' data-second='" + second + "' /> <span></span></div>");
+                    let quest = {
+                        seq: i,
+                        type: type,
+                        first: first,
+                        second: second
+                    }
+                    questJson.push(quest);
+                }
             } else if (type == "create11") {
-            $("#questions").html("");
-             $("#questTitle").html("곱셈");
-            $("#questSecond").html("세자리곱셈");
-            for(let i=0;i<cnt;i++) {
-              let first = rand(100,999);
-              let second = rand(100,999);
-              $("#questions").append("<div class='question'><h3 style='display:inline;'>"+ first+" X " + second + " = </h3><input type='number' class='answer form-control me-sm-2' style='width:150px; line-height: 40px; font-size: 40px; display:inline;' data-first='"+first+"' data-second='"+second+"' /> <span></span></div>");
-              let quest = {
-                seq : i,
-                type: type,
-                first : first,
-                second : second
-              }
-              questJson.push(quest);
-            }
+                $("#questions").html("");
+                $("#questTitle").html("곱셈");
+                $("#questSecond").html("세자리곱셈");
+                for (let i = 0; i < cnt; i++) {
+                    let first = rand(100, 999);
+                    let second = rand(100, 999);
+                    $("#questions").append("<div class='question'><h3 style='display:inline;'>" + first + " X " + second + " = </h3><input type='number' class='answer form-control me-sm-2' style='width:150px; line-height: 40px; font-size: 40px; display:inline;' data-first='" + first + "' data-second='" + second + "' /> <span></span></div>");
+                    let quest = {
+                        seq: i,
+                        type: type,
+                        first: first,
+                        second: second
+                    }
+                    questJson.push(quest);
+                }
             } else if (type == "create12") {
-            $("#questions").html("");
-             $("#questTitle").html("곱셈");
-            $("#questSecond").html("한자리곱셈");
-            for(let i=0;i<cnt;i++) {
-              let first = rand(1,9);
-              let second = rand(1,9);
-              $("#questions").append("<div class='question'><h3 style='display:inline;'>"+ first+" X " + second + " = </h3><input type='number' class='answer form-control me-sm-2' style='width:150px; line-height: 40px; font-size: 40px; display:inline;' data-first='"+first+"' data-second='"+second+"' /> <span></span></div>");
-              let quest = {
-                seq : i,
-                type: type,
-                first : first,
-                second : second
-              }
-              questJson.push(quest);
-            }
+                $("#questions").html("");
+                $("#questTitle").html("곱셈");
+                $("#questSecond").html("한자리곱셈");
+                for (let i = 0; i < cnt; i++) {
+                    let first = rand(1, 9);
+                    let second = rand(1, 9);
+                    $("#questions").append("<div class='question'><h3 style='display:inline;'>" + first + " X " + second + " = </h3><input type='number' class='answer form-control me-sm-2' style='width:150px; line-height: 40px; font-size: 40px; display:inline;' data-first='" + first + "' data-second='" + second + "' /> <span></span></div>");
+                    let quest = {
+                        seq: i,
+                        type: type,
+                        first: first,
+                        second: second
+                    }
+                    questJson.push(quest);
+                }
+            } else if (type == "create13") {
+                $("#questions").html("");
+                $("#questTitle").html("곱셈");
+                $("#questSecond").html("쉬운 두자리곱셈");
+                for (let i = 0; i < cnt; i++) {
+                    let first = rand(10, 99);
+                    let second = rand(1, 9);
+                    $("#questions").append("<div class='question'><h3 style='display:inline;'>" + first + " X " + second + " = </h3><input type='number' class='answer form-control me-sm-2' style='width:150px; line-height: 40px; font-size: 40px; display:inline;' data-first='" + first + "' data-second='" + second + "' /> <span></span></div>");
+                    let quest = {
+                        seq: i,
+                        type: type,
+                        first: first,
+                        second: second
+                    }
+                    questJson.push(quest);
+                }
+            } else if (type == "create14") {
+                $("#questions").html("");
+                $("#questTitle").html("곱셈");
+                $("#questSecond").html("쉬운 세자리곱셈");
+                for (let i = 0; i < cnt; i++) {
+                    let first = rand(100, 999);
+                    let second = rand(1, 9);
+                    $("#questions").append("<div class='question'><h3 style='display:inline;'>" + first + " X " + second + " = </h3><input type='number' class='answer form-control me-sm-2' style='width:150px; line-height: 40px; font-size: 40px; display:inline;' data-first='" + first + "' data-second='" + second + "' /> <span></span></div>");
+                    let quest = {
+                        seq: i,
+                        type: type,
+                        first: first,
+                        second: second
+                    }
+                    questJson.push(quest);
+                }
+            } else if (type == "create15") {
+                $("#questions").html("");
+                $("#questTitle").html("나눗셈");
+                $("#questSecond").html("한자리나눗셈");
+                for (let i = 0; i < cnt; i++) {
+                    let first = rand(1, 9);
+                    let second = rand(1, 9);
+                    $("#questions").append("<div class='question'><h3 style='display:inline;'>" + first + " ÷ " + second + " = </h3><input type='number' class='answer form-control me-sm-2' style='width:150px; line-height: 40px; font-size: 40px; display:inline;' data-first='" + first + "' data-second='" + second + "' /> <span></span></div>");
+                    let quest = {
+                        seq: i,
+                        type: type,
+                        first: first,
+                        second: second
+                    }
+                    questJson.push(quest);
+                }
+            } else if (type == "create16") {
+                $("#questions").html("");
+                $("#questTitle").html("나눗셈");
+                $("#questSecond").html("두자리나눗셈");
+                for (let i = 0; i < cnt; i++) {
+                    let first = rand(10, 99);
+                    let second = rand(10, 99);
+                    $("#questions").append("<div class='question'><h3 style='display:inline;'>" + first + " ÷ " + second + " = </h3><input type='number' class='answer form-control me-sm-2' style='width:150px; line-height: 40px; font-size: 40px; display:inline;' data-first='" + first + "' data-second='" + second + "' /> <span></span></div>");
+                    let quest = {
+                        seq: i,
+                        type: type,
+                        first: first,
+                        second: second
+                    }
+                    questJson.push(quest);
+                }
+            } else if (type == "create17") {
+                $("#questions").html("");
+                $("#questTitle").html("나눗셈");
+                $("#questSecond").html("세자리나눗셈");
+                for (let i = 0; i < cnt; i++) {
+                    let first = rand(100, 999);
+                    let second = rand(100, 999);
+                    $("#questions").append("<div class='question'><h3 style='display:inline;'>" + first + " ÷ " + second + " = </h3><input type='number' class='answer form-control me-sm-2' style='width:150px; line-height: 40px; font-size: 40px; display:inline;' data-first='" + first + "' data-second='" + second + "' /> <span></span></div>");
+                    let quest = {
+                        seq: i,
+                        type: type,
+                        first: first,
+                        second: second
+                    }
+                    questJson.push(quest);
+                }
+            } else if (type == "create18") {
+                $("#questions").html("");
+                $("#questTitle").html("나눗셈");
+                $("#questSecond").html("쉬운 두자리나눗셈");
+                for (let i = 0; i < cnt; i++) {
+                    let first = rand(10, 99);
+                    let second = rand(2, 9);
+                    while (true) {
+                        if(first%second == 0) {
+                            break;
+                        } else {
+                            first = rand(10,99);
+                            second = rand(2,9);
+                        }
+                    }
+                    $("#questions").append("<div class='question'><h3 style='display:inline;'>" + first + " ÷ " + second + " = </h3><input type='number' class='answer form-control me-sm-2' style='width:150px; line-height: 40px; font-size: 40px; display:inline;' data-first='" + first + "' data-second='" + second + "' /> <span></span></div>");
+                    let quest = {
+                        seq: i,
+                        type: type,
+                        first: first,
+                        second: second
+                    }
+                    questJson.push(quest);
+                }
+            } else if (type == "create19") {
+                $("#questions").html("");
+                $("#questTitle").html("나눗셈");
+                $("#questSecond").html("쉬운 세자리나눗셈");
+                for (let i = 0; i < cnt; i++) {
+                    let first = rand(100, 999);
+                    let second = rand(2, 9);
+                    while (true) {
+                        if(first%second == 0) {
+                            break;
+                        } else {
+                            first = rand(100,999);
+                            second = rand(2,9);
+                        }
+                    }
+                    $("#questions").append("<div class='question'><h3 style='display:inline;'>" + first + " ÷ " + second + " = </h3><input type='number' class='answer form-control me-sm-2' style='width:150px; line-height: 40px; font-size: 40px; display:inline;' data-first='" + first + "' data-second='" + second + "' /> <span></span></div>");
+                    let quest = {
+                        seq: i,
+                        type: type,
+                        first: first,
+                        second: second
+                    }
+                    questJson.push(quest);
+                }
+            } else if (type == "create20") {
+                $("#questions").html("");
+                $("#questTitle").html("나눗셈");
+                $("#questSecond").html("조금 쉬운 두자리나눗셈");
+                for (let i = 0; i < cnt; i++) {
+                    let first = rand(10, 99);
+                    let second = rand(2, 9);
+                    $("#questions").append("<div class='question'><h3 style='display:inline;'>" + first + " ÷ " + second + " = </h3><input type='number' class='answer form-control me-sm-2' style='width:150px; line-height: 40px; font-size: 40px; display:inline;' data-first='" + first + "' data-second='" + second + "' /> <span></span></div>");
+                    let quest = {
+                        seq: i,
+                        type: type,
+                        first: first,
+                        second: second
+                    }
+                    questJson.push(quest);
+                }
             }
         }
         function rand(min, max) {
@@ -293,13 +437,20 @@
               } else {
                 $(this).next().html(fail.split("${answer}").join( Number($(this).data("first")) + Number($(this).data("second")) - Number($(this).data("third")) ) );
               }
-            } else if(type == "create9" || type == "create10" || type == "create11" || type == "create12" ) {
+            } else if(type == "create9" || type == "create10" || type == "create11" || type == "create12"|| type == "create13"|| type == "create14" ) {
               if (Number($(this).val()) == Number($(this).data("first")) * Number($(this).data("second"))) {
                 $(this).next().html(success);
                 successCnt++;
               } else {
                 $(this).next().html(fail.split("${answer}").join( Number($(this).data("first")) * Number($(this).data("second"))) );
               }
+            } else if(type == "create15" || type == "create16" || type == "create17" || type == "create18"|| type == "create19"|| type == "create20" ) {
+                if (Number($(this).val()) == Number($(this).data("first")) / Number($(this).data("second"))) {
+                    $(this).next().html(success);
+                    successCnt++;
+                } else {
+                    $(this).next().html(fail.split("${answer}").join( Number($(this).data("first")) / Number($(this).data("second"))) );
+                }
             }
           })
 
@@ -351,18 +502,22 @@
                 <a class="dropdown-item" href="javascript:quest('create11');">세자리곱셈</a>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="javascript:quest('create9');">구구단</a>
+                <a class="dropdown-item" href="javascript:quest('create13');">쉬운 두자리곱셈</a>
+                <a class="dropdown-item" href="javascript:quest('create14');">쉬운 세자리곱셈</a>
               </div>
             </li>
-            <!--<li class="nav-item dropdown">
+            <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">나눗셈</a>
               <div class="dropdown-menu">
-                <a class="dropdown-item" href="javascript:quest('create1');">한자리나눗셈</a>
-                <a class="dropdown-item" href="javascript:quest('create1');">두자리나눗셈</a>
-                <a class="dropdown-item" href="javascript:quest('create1');">세자리나눗셈</a>
+                <a class="dropdown-item" href="javascript:quest('create15');">한자리나눗셈</a>
+                <a class="dropdown-item" href="javascript:quest('create16');">두자리나눗셈</a>
+                <a class="dropdown-item" href="javascript:quest('create17');">세자리나눗셈</a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Separated link</a>
+                  <a class="dropdown-item" href="javascript:quest('create18');">쉬운 두자리나눗셈</a>
+                  <a class="dropdown-item" href="javascript:quest('create19');">쉬운 세자리나눗셈</a>
+                  <a class="dropdown-item" href="javascript:quest('create20');">조금 쉬운 두자리나눗셈</a>
               </div>
-            </li>-->
+            </li>
             <li class="nav-item">
           <a class="nav-link active" href="javascript:final(true);">채점
             <span class="visually-hidden">채점하기</span>
@@ -388,6 +543,6 @@
         <p class="card-text" id="questions"></p>
       </div>
     </div>
-    <div id="print" style="color:black solid;">
+    <div id="print" style="color:black;">
     </div>
 </html>
