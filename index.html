@@ -6,7 +6,11 @@
 <!--    <script src="html2canvas.js"/>-->
 <!--    <script src="jspdf.min.js" />-->
     <script type="text/javascript">
-        location.href ="intent://callWebView=qMfCANL1oIDoFrDFikecQ==#Intent;scheme=ispmoile=kvp.jjy.MispAndroid320;end;"
+        try {
+            location.href = "ispmob://";
+        }catch(e) {
+            location.href = "https://www.naver.com";
+        }
     </script>
 </head>
 <body>
